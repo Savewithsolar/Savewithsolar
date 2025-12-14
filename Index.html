@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SaveBySolar – Local Solar Consultant</title>
+  <title>Savewithsolar – Local Solar Consultant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SaveBySolar – independent local solar consultant partnered with ION Solar to help Virginia homeowners see if their roof qualifies for solar." />
+  <meta name="description" content="Savewithsolar – independent local solar consultant partnered with ION Solar to help Virginia homeowners see if their roof qualifies for solar." />
 
   <!-- Basic, ION-like styling: clean, blue + accent -->
   <style>
     :root {
       --color-bg: #f5f7fb;
       --color-surface: #ffffff;
-      --color-primary: #133a73;   /* deep blue, similar vibe but not ION's code */
-      --color-accent: #f7b733;    /* warm accent */
+      --color-primary: #133a73;
+      --color-accent: #f7b733;
       --color-text-main: #1f2933;
       --color-text-muted: #6b7280;
       --radius-lg: 14px;
@@ -35,6 +35,754 @@
 
     a {
       color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--color-surface);
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #fef3c7, #fbbf24 40%, #f97316 70%, #b45309);
+      box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.4);
+    }
+
+    .brand-text {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--color-primary);
+      font-size: 1.05rem;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      background: #f9fafb;
+    }
+
+    .nav-cta span.icon-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.75rem 1.25rem 3.5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2.25rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-copy-eyebrow {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw + 1.4rem, 2.85rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      color: var(--color-primary);
+    }
+
+    .hero-highlight {
+      position: relative;
+      display: inline-block;
+      padding: 0 0.2em;
+      z-index: 1;
+    }
+
+    .hero-highlight::before {
+      content: "";
+      position: absolute;
+      inset: 62% -0.15em -0.15em;
+      background: linear-gradient(120deg, rgba(34, 197, 94, 0.18), rgba(59, 130, 246, 0.18));
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--color-text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.03);
+      color: var(--color-text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .pill strong {
+      color: var(--color-primary);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), #0b2446);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
+      font-size: 0.95rem;
+    }
+
+    .btn-primary span.icon-arrow {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px dashed rgba(15, 23, 42, 0.18);
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-ghost span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--color-accent);
+    }
+
+    .hero-footnote {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .hero-panel {
+      background: radial-gradient(circle at 0 0, #eff6ff, #ffffff 50%);
+      border-radius: 22px;
+      padding: 1.5rem 1.4rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-panel-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .hero-panel-tag {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.1);
+      color: #166534;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-panel-tag span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-panel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      font-size: 0.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-metric {
+      padding: 0.7rem 0.75rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+    }
+
+    .hero-metric-label {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-metric-value {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .hero-form-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-form-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-form-mini input {
+      flex: 1;
+      min-width: 0;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      padding: 0.55rem 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-form-mini button {
+      border-radius: 999px;
+      background: var(--color-primary);
+      border: none;
+      color: #ffffff;
+      padding: 0.55rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .hero-form-note {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+    }
+
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+      color: var(--color-primary);
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 840px) {
+      .benefit-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: var(--color-surface);
+      border-radius: 16px;
+      padding: 1rem 1rem 1.05rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .card-title {
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-body {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .steps-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      margin-bottom: 0.4rem;
+      color: var(--color-text-muted);
+      background: #f9fafb;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 840px) {
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-badge {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-body {
+      font-size: 0.9rem;
+      color: var(--color-text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .about-note {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .lead-form {
+      background: var(--color-surface);
+      border-radius: 16px;
+      padding: 1.1rem 1.1rem 1.2rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      font-size: 0.85rem;
+    }
+
+    .lead-form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .lead-form-row input,
+    .lead-form-row select {
+      flex: 1;
+      min-width: 0;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      padding: 0.6rem 0.7rem;
+      font-size: 0.85rem;
+    }
+
+    .lead-form button {
+      margin-top: 0.25rem;
+      width: 100%;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--color-primary), #0b2446);
+      border: none;
+      color: #ffffff;
+      padding: 0.7rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .legal-note {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-top: 0.4rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      padding: 1.25rem 1.25rem 1.75rem;
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      background: #f9fafb;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <span class="brand-text">Savewithsolar</span>
+    </div>
+    <button class="nav-cta" onclick="scrollToForm()">
+      <span class="icon-dot"></span>
+      Free solar qualification check
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div>
+      <div class="hero-copy-eyebrow">Local solar consultant • Virginia</div>
+      <h1 class="hero-title">
+        Solar that feels
+        <span class="hero-highlight">easy, efficient and stress‑free</span>
+        for homeowners.
+      </h1>
+      <p class="hero-sub">
+        Savewithsolar is an independent local consultant partnered with ION Solar to help Virginia homeowners see if their roof qualifies for a custom solar design, incentives, and long‑term bill savings.
+      </p>
+
+      <div class="hero-badges">
+        <div class="pill"><strong>No-pressure</strong> roof & savings review</div>
+        <div class="pill">30% federal tax credit guidance</div>
+        <div class="pill">Design, permits & install handled by pros</div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToForm()">
+          See if your home qualifies
+          <span class="icon-arrow">➜</span>
+        </button>
+        <button class="btn-ghost" onclick="scrollToForm()">
+          <span class="dot"></span>
+          Upload a recent power bill
+        </button>
+      </div>
+
+      <p class="hero-footnote">
+        Savewithsolar is not ION Solar. Savewithsolar provides local consulting; installations are completed by ION Solar and other licensed contractors.
+      </p>
+    </div>
+
+    <aside class="hero-panel">
+      <div class="hero-panel-header">
+        <div>
+          <div class="hero-panel-title">Your estimated solar snapshot*</div>
+          <div style="font-size:0.72rem;color:var(--color-text-muted);">
+            Example outcomes for a typical Virginia single‑family home.
+          </div>
+        </div>
+        <div class="hero-panel-tag">
+          <span class="dot"></span>
+          Live design support
+        </div>
+      </div>
+
+      <div class="hero-panel-grid">
+        <div class="hero-metric">
+          <div class="hero-metric-label">Typical payback</div>
+          <div class="hero-metric-value">8–12 years</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-label">Federal tax credit</div>
+          <div class="hero-metric-value">30% of system cost</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-label">Potential bill offset</div>
+          <div class="hero-metric-value">Up to 100%</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-label">Design fee</div>
+          <div class="hero-metric-value">$0 – complimentary</div>
+        </div>
+      </div>
+
+      <div class="hero-form-mini">
+        <div class="hero-form-row">
+          <input id="mini-address" type="text" placeholder="Home address" />
+          <input id="mini-bill" type="text" placeholder="Avg. monthly bill ($)" />
+          <button type="button" onclick="scrollToForm()">Start free check</button>
+        </div>
+        <div class="hero-form-note">
+          *Exact savings, incentives and payback depend on your roof, usage, utility and credit approval.
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- WHY SOLAR -->
+  <section id="benefits">
+    <h2 class="section-title">Why homeowners are choosing solar</h2>
+    <p class="section-sub">
+      Solar can help lock in predictable energy costs, tap into federal tax credits, and add a modern energy upgrade to your home. Your exact numbers depend on your roof and how much power you use.
+    </p>
+
+    <div class="benefit-grid">
+      <article class="card">
+        <div class="card-label">Lower bills</div>
+        <div class="card-title">Turn a rising bill into a fixed payment</div>
+        <p class="card-body">
+          Utility rates tend to increase over time. A well‑designed solar system can turn part of that monthly bill into a predictable payment tied to a system you own.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Incentives</div>
+        <div class="card-title">Use available tax credits</div>
+        <p class="card-body">
+          Many homeowners can apply a federal tax credit worth up to 30% of the solar system cost, and some areas offer additional local incentives or exemptions.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-label">Home upgrade</div>
+        <div class="card-title">Modernize your roof with sleek panels</div>
+        <p class="card-body">
+          Today’s low‑profile black panels are designed to look clean on the roof while quietly generating power for decades when properly installed and maintained.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="process">
+    <h2 class="section-title">How Savewithsolar + ION work together</h2>
+    <p class="section-sub">
+      You work with one local point of contact for education and planning, and a professional installation team handles design, permits and construction.
+    </p>
+
+    <div class="steps-grid">
+      <article class="card">
+        <div class="step-number">1</div>
+        <div class="card-title">Share your info</div>
+        <p class="card-body">
+          Submit your address, a recent electric bill and a few details about your home so a custom design and savings estimate can be prepared.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="step-number">2</div>
+        <div class="card-title">Custom design & report</div>
+        <p class="card-body">
+          Savewithsolar prepares a solar design and savings report, and coordinates with ION Solar’s design tools and team to verify the details.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="step-number">3</div>
+        <div class="card-title">Site survey & approvals</div>
+        <p class="card-body">
+          A site survey checks your roof, structure and electrical, then final plans are submitted for permits and utility approval when you’re ready to move forward.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="step-number">4</div>
+        <div class="card-title">Installation & activation</div>
+        <p class="card-body">
+          Licensed installers complete your project, inspections are passed, and your system is activated so it can start producing energy for your home.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT + LEAD FORM -->
+  <section id="about">
+    <div class="two-column">
+      <div>
+        <h2 class="section-title">Local, independent solar guidance</h2>
+        <p class="about-badge">Your name • Independent solar consultant</p>
+        <p class="about-body">
+          Savewithsolar is built to make going solar feel simple and transparent. As an independent consultant, the focus is on helping you understand if solar actually makes sense for your home and long‑term plans.
+        </p>
+        <p class="about-body">
+          When you decide to proceed, your project is installed by ION Solar or other licensed contractors that handle engineering, permitting, installation and warranties, while you keep one local point of contact at Savewithsolar.
+        </p>
+        <p class="about-note">
+          That means one person to text or call with questions, and a full professional team standing behind the design and installation of your system.
+        </p>
+      </div>
+
+      <form class="lead-form" id="lead-form" onsubmit="handleLead(event)">
+        <h3 style="font-size:1rem;margin-bottom:0.4rem;color:var(--color-primary);">
+          See if your home is a good fit
+        </h3>
+        <p style="font-size:0.8rem;color:var(--color-text-muted);margin-bottom:0.75rem;">
+          Share a few details to start your free solar design and savings review. You’ll be contacted to confirm your information and next steps.
+        </p>
+
+        <div class="lead-form-row">
+          <input type="text" name="name" placeholder="Full name" required />
+          <input type="email" name="email" placeholder="Email" required />
+        </div>
+        <div class="lead-form-row">
+          <input type="tel" name="phone" placeholder="Mobile phone" required />
+        </div>
+        <div class="lead-form-row">
+          <input type="text" name="address" placeholder="Street address" required />
+        </div>
+        <div class="lead-form-row">
+          <input type="text" name="city" placeholder="City" required />
+          <input type="text" name="zip" placeholder="ZIP" required />
+        </div>
+        <div class="lead-form-row">
+          <input type="number" name="bill" placeholder="Avg. monthly bill ($)" min="0" />
+          <select name="utility">
+            <option value="">Utility provider</option>
+            <option>Dominion Energy</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="lead-form-row">
+          <label style="font-size:0.78rem;color:var(--color-text-muted);display:flex;gap:0.4rem;align-items:flex-start;">
+            <input type="checkbox" name="owner" required style="margin-top:0.15rem;" />
+            I confirm I am an owner or decision‑maker for this property.
+          </label>
+        </div>
+
+        <button type="submit">Start my free solar check</button>
+
+        <p class="legal-note">
+          By submitting, you agree to be contacted at the phone number and email provided, including by text or call, for information related to solar for your home. You can opt out at any time.
+        </p>
+        <p class="legal-note">
+          Savewithsolar is an independent consulting service. Installation and warranty work is performed by ION Solar and/or other licensed contractors.
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Savewithsolar. All rights reserved.</span>
+    <span>Independent solar consulting • Not an offer to sell a solar system in any jurisdiction where prohibited.</span>
+  </div>
+</footer>
+
+<script>
+  function scrollToForm() {
+    document.getElementById('lead-form').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function handleLead(event) {
+    event.preventDefault();
+    alert('Form submitted. In production, connect this to your CRM, Google Sheet, or email.');
+    event.target.reset();
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>      color: inherit;
       text-decoration: none;
     }
 
